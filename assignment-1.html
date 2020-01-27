@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		button {
+			font-weight: bold;
+			color: darkblue;
+			border: 1px solid blue;
+			background-color: white;
+		}
+
+		.main {
+			margin: 5px;
+			padding: 15px;
+			width: 400px;
+			height: 400px;
+			background-image: url('game.png');
+			background-size: 100px 100px;
+			background-repeat: no-repeat;
+			background-position: right top;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="main">
+		<h1>Rock Paper Scissors</h1>
+
+		<p id="instr">Your Win this game, you Pass this course...</p><br>
+		<p id="y_score" style="color:blue">Your Score : </p>
+		<p id="c_score" style="color:red">Computer Score : </p>
+		<button id="b1" onclick="myFunction(1)">Rock</button>
+		<button id="b2" onclick="myFunction(2)">Paper</button>
+		<button id="b3" onclick="myFunction(3)">Scissors</button>
+		<button id="b4" onclick="myFunction(0)">Quit</button>
+		<p id="you">you</p>
+		<p id="computer">computer</p><br><br><br><br>
+		<p id="final">final</p>
+	</div>
+
+	<script>
+		//
+		//  Your codes go in here
+		//
+
+		var _n, y_score = 0,
+			c_score = 0,
+			final = "";
+		var b1 = document.getElementById("b1");
+		var b2 = document.getElementById("b2");
+		var b3 = document.getElementById("b3");
+		var b4 = document.getElementById("b4");
+		var ys = document.getElementById("y_score");
+		var cs = document.getElementById("c_score");
+		var fs = document.getElementById("final");
+		var _notes1 = "Rock's enemy is Paper.  And Scissors will succumb to Rock.";
+		var _notes2 = "Paper's enemy is Scissors.  And Rock will succumb to Paper.";
+		var _notes3 = "Scissors's enemy is Rock.  And Paper will succumb to Scissors.";
+
+		function notes(_n) {
+			if (_n == 1)
+				fs.innerHTML = _notes1;
+			else if (_n == 2)
+				fs.innerHTML = _notes2;
+			else if (_n == 3)
+				fs.innerHTML = _notes3;
+			else fs.innerHTML = "Do you want to quit the game?"
+		}
+
+		function noNotes() {
+			fs.innerHTML = "";
+		}
+
+		//Replace HTML Content/Add New Nodes
+		function myFunction(x) {
+			var you = document.getElementById("you");
+			var computer = document.getElementById("computer");
+			if (x == 0) {
+				b1.disabled = true;
+				b2.disabled = true;
+				b3.disabled = true;
+				b4.disabled = true;
+				if (y_score > c_score) {
+					final = "Congratulations!!!  You WON.";
+					fs.style.color = "blue";
+				} else if (y_score == c_score) final = "It's a TIE game...";
+				else {
+					final = "Too Bad.  You LOST.  Better luck next time.";
+					fs.style.color = "red";
+				}
+				fs.innerHTML = final;
+				return;
+			} else if (x == 1) y =
+				"<img style='position:absolute; top:280px; left:50px; width:50px; height:50px' src='rock.png'>";
+			else if (x == 2) y =
+				"<img style='position:absolute; top:280px; left:50px; width:50px; height:50px' src='paper.png'>";
+			else y = "<img style='position:absolute; top:280px; left:50px; width:50px; height:50px' src='scissors.png'>";
+
+			you.innerHTML = y;
+			var t = Math.floor((Math.random() * 3) + 1);
+			if (t == 3) {
+				var p = "Scissors";
+				z = "<img style='position:absolute; top:280px; left:120px; width:50px; height:50px' src='Scissors.png'>";
+				if (x == 1) y_score++;
+				else if (x == 2) c_score++;
+			} else if (t == 2) {
+				var p = "Paper";
+				z = "<img style='position:absolute; top:280px; left:120px; width:50px; height:50px' src='Paper.png'>";
+				if (x == 1) c_score++;
+				else if (x == 3) y_score++;
+			} else {
+				var p = "rock";
+				z = "<img style='position:absolute; top:280px; left:120px; width:50px; height:50px' src='rock.png'>";
+				if (x == 2) y_score++;
+				else if (x == 3) c_score++;
+			}
+			computer.innerHTML = z;
+			ys.innerHTML = "Your Score : " + y_score;
+			cs.innerHTML = "Computer Score : " + c_score;
+		}
+	</script>
+
+</body>
+
+</html>

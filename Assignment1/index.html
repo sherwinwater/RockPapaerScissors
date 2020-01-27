@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>RockPaperScissors</title>
+</head>
+
+<body>
+  <header>
+    <h1>Rock Paper Scissors</h1>
+  </header>
+
+  <div class="game">
+    <p id="start">Choose your move</p>
+    <div id="rock">
+      <img src="images/rock.png" alt="" width="50">
+    </div>
+    <div id="paper">
+      <img src="images/paper.png" alt="" width="50">
+    </div>
+    <div id="scissors">
+      <img src="images/scissors.png" alt="" width="50">
+    </div>
+    <br>
+
+    <div class="move_grid">
+        <div class="move1">Your move</div>
+        <div class="move2">Computer's move</div>
+        <div id="move_you" class="move3">
+          <img src="images/game.png" alt="" width="70">
+        </div>
+        <div id="move_computer" class="move4">
+          <img src="images/game.png" alt="" width="70">
+        </div>
+      </div>
+
+  </div>
+
+  <div class="scoreboard_grid">
+    <div id="result">Results</div>
+    <div id="scoreboard_you" class="move">your score</div>
+    <div id="scoreboard_computer" class="move">computer's score</div>
+    <div id="yourscore" class="move">0</div>
+    <div id="y_c" class="move">:</div>
+    <div id="computerscore" class="move">0</div>
+  </div>
+
+  <button id="finish">Finish</button>
+  <button id="newGame">New game</button>
+
+  <footer id="messageResult">
+    Who will win this game?
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+
+</html>
