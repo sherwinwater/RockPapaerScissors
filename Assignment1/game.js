@@ -143,6 +143,9 @@ finish.addEventListener("click", function() {
 newGame.addEventListener("click", function() {
   yourScore_span.innerHTML = 0;
   computerScore_span.innerHTML = 0;
+  yourScore = 0;
+  computerScore = 0;
+  console.log(yourscore);
   messageResult.innerHTML = "Who will win this game?";
   move_you_photo.innerHTML = game_photo;
   move_you_photo.classList.remove("dark");
